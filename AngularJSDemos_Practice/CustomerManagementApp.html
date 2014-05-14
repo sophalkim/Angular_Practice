@@ -14,8 +14,26 @@
 				<a class="brand" href="#">
 					<img src="Content/Images/people.png" alt="logo"> Customer Manager
 				</a>
+				<ul class="nav nav-pills" data-ng-controller="NavbarController">
+					<li data-ng-class="{'active':getClass('/customers')}"><a href="#/customers">Customers</a></li>
+					<li data-ng-class="{'active':getClass('/orders')}"><a href="#/orders"></a>Orders</li>
+				</ul>
 			</div>
 		</div>
 	</div>
+
+	<!-- Vendor Libraries -->
+	<script src="Scripts/angular.js"></script>
+	<script src="Scripts/angular-route.js"></script>
+	<script src="Scripts/jquery.min.js"></script>
+
+	<!-- UI Library -->
+	<script src="Scripts/bootstrap.js"></script>
+
+	<!-- App Library -->
+	<script src="app/app.js"></script>
+	<script src="app/controllers/controllers.js"></script>
+	<script src="app/services/customersService.js"></script>
+	<script src="app/directives/animatedView.js"></script>
 </body>
 </html>
