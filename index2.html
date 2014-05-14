@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+	<title>Phal's Angular</title>
+</head>
+<body>
+	<div>
+		<!-- Place Holder for View -->
+		<div ng-view></div>
+	</div>
+	<script src="angular.min.js"></script>
+	<script>
+		var demoApp = angular.module('demoApp', []);
+
+		demoApp.config(function($routeProvider)) {
+			$routeProvider
+				.when('/view1',
+					{
+						controller: 'SimpleController',
+						templateUrl: 'Partials/View1.html'
+					})
+				.when('/view2', 
+					{
+						controller: 'SimpleController',
+						templateUrl: 'Partials/View2.html'
+					})
+				.otherwise({ redirectTo: '/view1'});
+		}
+
+		function SimpleController($scope) {
+			$scope.customers = [
+				{ name: 'Al', city: 'Austin'},
+				{ name: 'Bob', city: 'Burlington'},
+				{ name: 'Carol', city: 'CrossPoint'}
+			];
+
+			$scope.addCustomer = function() {
+				$scope.customers.push(
+					{ name: $scope.newCustomer.name, city: $scope.newCustomer.city });
+			}
+		}
+		demoApp.factory('simpleFactory', function() {
+			var factory = {};
+			factory.getCustomers = function() {
+				return customers;
+			}
+			factory.postCustomers = function(customer) {
+
+			};
+		});
+		demoApp.controller('SimpleController', SimpleController);
+		init();
+		function init() {
+			$scope.customers = simpleFactory.getCustomers();
+		}
+	</script>
+</body>
+</html>
