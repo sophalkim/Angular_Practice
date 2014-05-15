@@ -18,7 +18,19 @@
 				City:
 				<br>
 				<input data-ng-model="newCustomer.city" type="text" placeHolder="Customer City">
-				<button class="btn btn-primary" ></button>
+				<button class="btn btn-primary" id="submitCustomer" type="button" data-ng-disabled="!newCustomer.firstName || !newCustomer.lastName || !newCustomer.city" data-ng-click="insertCustomer()">Add Customer</button>
+			</div>
+		</div>
+		<br> <br>
+		<div>
+			<div class="row cardContainer">
+				<div class="span3 card" data-ng-repeat="customer in customers | orderBy: 'lastname'">
+					<button class="btn close cardClose" data-ng-click="deleteCustomer(customer.id)">&times;</button>
+					<div class="cardHeader">{{customer.firstName + ' ' + customer.lastName}}
+					</div>
+					<div class="cardBody">{{customer.city}}</div>
+					<a href="#/customerorders/{{customer.id}}" class="cardBody btn-link">View {[ customer.orders.length }} Orders</a>
+				</div>
 			</div>
 		</div>
 	</div>
