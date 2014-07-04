@@ -1,0 +1,18 @@
+body {
+	padding: 65px;
+}
+
+.view {
+	left: 60px;
+	position: relative;
+	opacity: 0.0;
+}
+
+.card {
+	background-color:#efefef;
+	border: 1px solid black;
+	height: 75px;
+	width: 225px;
+	margin-bottom: 20px;
+}
+
