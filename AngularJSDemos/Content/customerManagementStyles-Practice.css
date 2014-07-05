@@ -16,3 +16,15 @@ body {
 	margin-bottom: 20px;
 }
 
+.cardHeader {
+	background-color: #006dcc;
+	font-size: 14pt;
+	color: white;
+	padding: 5px;
+}
+
+.cardClose {
+	color: white;
+	font-weight: bold;
+	margin-right: 5px;
+}
