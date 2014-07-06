@@ -28,3 +28,19 @@ body {
 	font-weight: bold;
 	margin-right: 5px;
 }
+
+.cardContainer {
+	width: 90%;
+}
+
+.cardBody {
+	padding-left: 5px;
+}
+
+.lastRow {
+	background-color: #ccc;
+}
+
+.indent {
+	margin-left: 20px;
+}
