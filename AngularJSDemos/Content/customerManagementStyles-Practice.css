@@ -44,3 +44,8 @@ body {
 .indent {
 	margin-left: 20px;
 }
+
+.ordersTable {
+	width: 800px;
+	margin-left: 20px;
+}
