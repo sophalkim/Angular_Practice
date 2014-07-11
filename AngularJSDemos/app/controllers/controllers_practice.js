@@ -34,3 +34,12 @@ app.controller('CustomersOrdersController', function ($scope, $routeParams, cust
 		}
 	}
 });
+
+app.controller('OrdersController', function ($scope, customersService)) {
+	$scope.customers = [];
+	init();
+
+	function init() {
+		#scope.customers = customersService.getCustomers();
+	}
+}
