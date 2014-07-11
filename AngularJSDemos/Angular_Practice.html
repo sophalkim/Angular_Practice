@@ -11,12 +11,13 @@
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand" href="#/"></a>
+				<a class="brand" href="#/">
 					<img src="Content/Images/people.png" alt="logo"> Customer Manager
 				</a>
-				<ul class="nav nav-pills" data-ng-controller="NavbarController"></ul>
+				<ul class="nav nav-pills" data-ng-controller="NavbarController">
 					<li data-ng-class="{'active':getClass('/customers')}"><a href="#/customers">Customers</a></li>
 					<li data-ng-class="{'active':getClass('/orders')}"><a href="#/orders">Orders</a></li>
+				</ul>
 			</div>
 		</div>
 	</div>
