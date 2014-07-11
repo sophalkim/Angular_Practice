@@ -72,8 +72,22 @@ app.service('customersService', function() {
 			id: 6, firstName: 'Billy', lastName: 'Bob', address: '123 Fake Street', city: 'Stockton',
 			orders: [
 				{ product: 'Master of Magic', price: 19.99, quantity: 1, orderTotal: 19.99 },
-
+				{ product: 'Mickey', price: .05, quantity: 4, orderTotal: .20 }
+			]
+		},
+		{
+			id: 7, firstName: 'Lynette', lastName: 'Gonzalez', address: '25624 Main St.', city: 'Albuquerque',
+			orders: [
+				{ product: 'Statue', price: 429.99, quantity: 1, orderTotal: 429.99 },
+				{ product: 'Picture', price: 1029.99, quantity: 1, orderTotal: 1029.99}
+			]
+		},
+		{
+			id: 8, firstName: 'Mickey', lastName: 'Kim', address: '1234 TerraCorvo Circle', city: 'Lodi',
+			orders: [
+				{ product: 'Dry Food', price: 2.00, quantity: 3, orderTotal: 6.00 },
+				{ product: 'Wet Food', price: 5.00, quantity: 6, orderTotal: 30.00}
 			]
 		}
-	]
-})
+	];
+});
