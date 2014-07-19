@@ -45,6 +45,12 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 					clearContent();
 				}
 			}
+
+			function animateEnterView(animation) {
+				$(element).css('display', 'block');
+				bindElement();
+				animate(animation);
+			}
 		}
 	}
 }]);
