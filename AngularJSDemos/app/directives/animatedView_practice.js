@@ -51,6 +51,50 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 				bindElement();
 				animate(animation);
 			}
+
+			function animate(animationType) {
+				switch (animationType) {
+					case 'fadeOut':
+						$(element.children()).animate({}, defaults.duration, function() {
+							animateEnterView('slideLeft');
+						});
+						break;
+					case 'slideLeft':
+						$(element.children()).animate({
+							left: '-=' + defaults.slideAmount,
+							opacity: 1.0
+						}, defaults.duration);
+						break;
+					case 'slideRight':
+						$(element.children()).animate({
+							left: '+=' + defaults.slideAmount,
+							opactiy: 1.0
+						}, defaults.duration);
+						break;
+				}
+			}
+
+			function bindElement() {
+				element.html(template);
+				destroyLastScope();
+
+				var link = $compile(element.contents()),
+					current = $route.current,
+					controller;
+
+				lastScope = current.scope = scope.$new();
+				if (current.controller) {
+					locals.$scope = lastScope;
+					controller = $controller(current.controller, locals);
+					element.children().data('$ngControllerController', controller);
+				}
+
+				link(lastScope);
+				lastScope.$emit('$viewContentLoaded');
+				lastScope.$eval(onloadExp);
+
+				$anchorScroll();
+			}
 		}
-	}
+	};
 }]);
