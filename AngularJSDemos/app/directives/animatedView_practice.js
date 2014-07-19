@@ -26,6 +26,25 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 				element.html('');
 				destroyLastScope();
 			}
+
+			function update() {
+				locals = $route.current && $route.current.locals;
+				template = locals && locals.$template;
+
+				if (template) {
+					if (!defaults.disabled) {
+						if (element.children().length > 0) {
+							animate(defaults.viewExitAnimation);
+						} else {
+							animateEnterView(defaults.viewEnterAnimation);
+						}
+					} else {
+						bindElement();
+					}
+				} else {
+					clearContent();
+				}
+			}
 		}
 	}
 }]);
