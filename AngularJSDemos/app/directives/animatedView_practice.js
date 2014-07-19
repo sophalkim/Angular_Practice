@@ -21,6 +21,11 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 					lastScope = null;
 				}
 			}
+
+			function clearContent() {
+				element.html('');
+				destroyLastScope();
+			}
 		}
 	}
 }]);
