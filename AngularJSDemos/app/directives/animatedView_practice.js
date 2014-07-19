@@ -3,7 +3,24 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 		restrict: 'ECA',
 		terminal: true,
 		link: function (scope, element, attr) {
-			var lastScope
+			var lastScope,
+				onloadExp = attr.onload || '',
+				defaults = { duration: 500, viewEnterAnimation: 'slideLeft', viewExitAnimation: 'fadeOut', slideAmount: 50, disabled: false}, 
+				locals, 
+				template,
+				options = scope.$eval(attr.animations);
+
+			angular.extend(defaults, options);
+
+			scope.$on('$routeChangeSuccess', update);
+			update();
+
+			function destroyLastScope() {
+				if (lastScope) {
+					lastScope.$destroy();
+					lastScope = null;
+				}
+			}
 		}
 	}
 }]);
