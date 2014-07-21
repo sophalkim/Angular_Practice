@@ -14,4 +14,15 @@ app.controller('CustomersController', function ($scope, customersService) {
 		$scope.newCustomer.lastName = '';
 		$scope.newCustomer.city = '';
 	};
+
+	$scope.deleteCustomer = function (id) {
+		customersService.deleteCustomer(id);
+	};
+});
+
+app.controller('CustomerOrdersController', function ($scope, $routeParams, customersService) {
+	$scope.customer = {};
+	$scope.ordersTotal = 0.00;
+	init();
+	
 })
