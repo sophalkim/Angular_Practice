@@ -24,5 +24,20 @@ app.controller('CustomerOrdersController', function ($scope, $routeParams, custo
 	$scope.customer = {};
 	$scope.ordersTotal = 0.00;
 	init();
-	
-})
+
+	function init() {
+		var customerID = ($routeParams.customerID) ? parseInt($routeParams.customersID) : 0;
+		if (customerID > 0) {
+			$scope.customer = customersService.getCustomer(customerID);
+		}
+	}
+});
+
+app.controller('OrdersController', function ($scope, customersService) {
+	$scope.customers = [];
+	init();
+
+	function init() {
+		$scope.customers = customersService.getCustomers();
+	}
+});
