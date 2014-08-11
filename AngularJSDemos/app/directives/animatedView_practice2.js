@@ -12,6 +12,13 @@ app.directive('animatedView', ['$route', '$anchorScroll', '$compile', '$controll
 			angular.extend(defaults, options);
 			scope.$on('$routeChangeSuccess', update);
 			update();
+
+			function destroyLastScope() {
+				if (lastScope) {
+					lastScope.$destroy();
+					lastScope = null;
+				}
+			}
 		}
 	}
 }])
