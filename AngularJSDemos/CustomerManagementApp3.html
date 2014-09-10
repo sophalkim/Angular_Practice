@@ -16,6 +16,14 @@
 					<img src="Content/Images/people.png" alt="logo">
 					 Customer Manager
 				</a>
+				<ul class="nav nav-pills" data-ng-controller="NavbarController">
+					<li data-ng-class="{'active':getClass('/customers')}">
+						<a href="#/customers">Customers</a>
+					</li>
+					<li data-ng-class="{'active':getClass('/orders')}">
+						<a href="#/orders">Orders</a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
