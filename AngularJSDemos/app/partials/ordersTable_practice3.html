@@ -14,11 +14,39 @@
 
 	<!-- Table Body -->
 	<tbody>
+
+		<!-- Error Message if no Orders are found -->
 		<tr
 			data-ng-hide="customer.orders || customer.orders.length > 0"
 			class="error">
 			<td colspan="4">
 				<div class="text-center"><strong>No orders found</strong></div>
+			</td>
+		</tr>
+
+		<!-- Info about the order -->
+		<tr data-ng-repeat="order in customer.orders | orderBy:orderby:reverse">
+			<td>
+				{{order.product}}
+			</td>
+			<td>
+				{{order.quantity}}
+			</td>
+			<td>
+				{{order.price | currency}}
+			</td>
+			<td>
+				{{order.orderTotal | currency}}
+			</td>
+		</tr>
+
+		<!-- Total amount -->
+		<tr class="info">
+			<td colspan="3">
+				&nbsp;
+			</td>
+			<td>
+				<strong>{{ordersTotal | currency }}</strong>
 			</td>
 		</tr>
 	</tbody>
