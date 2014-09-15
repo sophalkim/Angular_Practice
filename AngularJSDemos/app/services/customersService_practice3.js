@@ -21,4 +21,13 @@ app.service('customerService', function() {
 			}
 		}
 	};
+
+	this.getCustomer = function (id) {
+		for (var i = 0; i < customers.length; i++) {
+			if (customers[i].id === id) {
+				return customers[i];
+			}
+		}
+		return null;
+	};
 });
