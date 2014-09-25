@@ -74,10 +74,31 @@
 					url: urlBase + '7. Adding Module Configuration and Routing.html'
 				},
 				{
-					title: 'Module, Controller and Factory'
+					title: 'Module, Controller and Factory',
+					url: urlBase + '8. Module, Controller and Factory'
+				},
+				{
+					title: 'Customer Management App',
+					url: 'CustomerManagementApp.html',
+					href: 'CustomerManagementApp.html'
 				}
 
 			];
+
+			$scope.loadPage = function (page) {
+				if (page.href) {
+					document.location = page.href;
+				}
+				$scope.template = page.url;
+				$http({ method: 'GET', url: page.url, cache: $templateCache})
+					.success(function (html) {
+						$scope.html = html;
+						$('textarea').text(html);
+					})
+					.error(function (html, status) {
+						$scope.html = 'Unable to load code: ' + status;
+					});
+			}
 		});
 	</script>
 
