@@ -5,11 +5,19 @@ app.controller('CustomersController', function ($scope, customersService) {
 		$scope.customers = customersService.getCustomers();
 	}
 
+<<<<<<< HEAD
 	$scope.insertCustomer = function() {
 		var firstName = $scope.newCustomer.firstName;
 		var lastName = $scope.newCustomer.lastName;
 		var city = $scope.newCustomer.city;
 		customersService.insertCustomer(firstName, lastName, city);
+=======
+	$scope.insertCustomer = function () {
+		var firstName = $scope.newCustomer.firstName;
+		var lastName = $scope.newCustomer.lastName;
+		var city = $scope.newCustomer.city;
+		customersService.insertCustomer(firstName, lastName, citt);
+>>>>>>> origin/master
 		$scope.newCustomer.firstName = '';
 		$scope.newCustomer.lastName = '';
 		$scope.newCustomer.city = '';
@@ -50,7 +58,11 @@ app.controller('NavbarController', function ($scope, $location) {
 		} else {
 			return false;
 		}
+<<<<<<< HEAD
 	}
+=======
+	};
+>>>>>>> origin/master
 });
 
 app.controller('OrderChildController', function ($scope) {
@@ -77,4 +89,9 @@ app.controller('OrderChildController', function ($scope) {
 		}
 		$scope.orderby = orderby;
 	};
+<<<<<<< HEAD
 });
+=======
+});
+
+>>>>>>> origin/master
